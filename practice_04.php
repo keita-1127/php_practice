@@ -3,28 +3,28 @@
 //課題1
 function double($num){
   $result = $num * 2;
-  echo $result;
-  echo "\n";
+  return $result;
 }
-double(3);
+echo double(3);
+echo "\n";
 
 //課題2
 function f($a, $b){
   $result = $a + $b;
-  echo $result;
-  echo "\n";
+  return $result;
 }
- f(5, 5);
- 
- //課題3
+echo f(5, 5);
+echo "\n";
+
+//課題3
 function multiply($arr){
   $result = 1;
 foreach($arr as $a){
   $result *= $a;
 }
-  echo $result;
+  return $result;
 }
-  multiply(array(1, 3, 5 ,7, 9));
+  echo multiply(array(1, 3, 5 ,7, 9));
   echo "\n";
   
 //課題4
@@ -32,22 +32,23 @@ function max_array($arr){
   $max_number = $arr[0];
   foreach($arr as $a){
    if($max_number < $a){
-     $max_number = $a;
+      $max_number = $a;
    }
   }
   return $max_number;
   }
   echo max_array(array(11, 27, 4, 18, 6, 1));
   echo "\n";
-
-//課題5
+  
+  //課題5
 //strip_tags
 $str = "<p>タグを取り除きました。</p>";
-  echo strip_tags($str);
+  $result = strip_tags($str);
+  echo $result;
   echo "\n";
   
 //array_push
-$numbers = ["一番","二番","三番"];
+$numbers = array("一番","二番","三番");
   array_push($numbers,"四番","五番");
   print_r($numbers);
   
@@ -59,24 +60,20 @@ $array3 = [7, 8, 9];
   print_r($array);
 
 //time
-$timestamp = time();
-  echo $timestamp;
+$now = time();
+  print $now;
   echo "\n";
   
 //mktime
 date_default_timezone_set("UTC");
 $timestamp = mktime(0, 0, 0, 27, 11, 2019);
-  echo $timestamp;
+  print $timestamp;
   echo "\n";
   
 //date
-echo date('Y/m/d');
-echo "\n";
- 
-// 現在日時をフォーマットする
-echo date("Y-m-d H:i:s");
-echo "\n";
-echo date("Y年m月d日 H時i分s秒");
+$timestamp = time() + (60 * 60 * 24) * 7;
+$next_week = date("Y年m月d日H時i分s秒", $timestamp);
+print $next_week;
 echo "\n";
 
 ?>
